@@ -40,8 +40,31 @@ const fetchSingleBookById = (0, catchAsync_1.default)(async (req, res) => {
         data: result,
     });
 });
+const BookUpdatesById = (0, catchAsync_1.default)(async (req, res) => {
+    const { bookId } = req.params;
+    const bookData = req.body;
+    const result = await book_service_1.bookService.BookUpdatesByIdFromDB(bookId, bookData);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_codes_1.StatusCodes.OK,
+        success: true,
+        message: "Book updated successfully",
+        data: result,
+    });
+});
+const BookDeletesById = (0, catchAsync_1.default)(async (req, res) => {
+    const { bookId } = req.params;
+    const result = await book_service_1.bookService.BookDeletesByIdFromDB(bookId);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_codes_1.StatusCodes.OK,
+        success: true,
+        message: "Book deleted successfully",
+        data: result,
+    });
+});
 exports.bookController = {
     createBook,
     RetrievesBook,
     fetchSingleBookById,
+    BookUpdatesById,
+    BookDeletesById,
 };

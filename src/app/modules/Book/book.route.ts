@@ -21,4 +21,14 @@ router.get("/", bookController.RetrievesBook);
 
 router.get("/:bookId", bookController.fetchSingleBookById);
 
+//Update BookUpdates information of an existing book by its bookId. Endpoint: PUT /api/books/:bookId
+
+router.put("/:bookId", bookController.BookUpdatesById);
+
+
+//Delete BookDeletes a book from the library by its bookId.Endpoint: DELETE /api/books/:bookId
+
+router.delete("/:bookId", bookController.BookDeletesById);
+
+
 export const BookRoutes = router;

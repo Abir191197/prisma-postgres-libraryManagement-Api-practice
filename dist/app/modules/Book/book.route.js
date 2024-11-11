@@ -16,4 +16,8 @@ router.post("/", (0, validRequestZod_1.default)(book_validation_1.BookSchemaVali
 router.get("/", book_controller_1.bookController.RetrievesBook);
 //Fetches details of a specific book by its bookId.  Endpoint: GET /api/books/:bookId
 router.get("/:bookId", book_controller_1.bookController.fetchSingleBookById);
+//Update BookUpdates information of an existing book by its bookId. Endpoint: PUT /api/books/:bookId
+router.put("/:bookId", book_controller_1.bookController.BookUpdatesById);
+//Delete BookDeletes a book from the library by its bookId.Endpoint: DELETE /api/books/:bookId
+router.delete("/:bookId", book_controller_1.bookController.BookDeletesById);
 exports.BookRoutes = router;
