@@ -17,4 +17,8 @@ router.post(
 router.get("/", bookController.RetrievesBook);
 
 
+//Fetches details of a specific book by its bookId.  Endpoint: GET /api/books/:bookId
+
+router.get("/:bookId", bookController.fetchSingleBookById);
+
 export const BookRoutes = router;
