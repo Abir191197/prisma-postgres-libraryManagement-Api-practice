@@ -1,10 +1,22 @@
 -- CreateTable
+CREATE TABLE "Book" (
+    "bookId" UUID NOT NULL,
+    "title" TEXT NOT NULL,
+    "genre" TEXT NOT NULL,
+    "publishedYear" INTEGER NOT NULL,
+    "totalCopies" INTEGER NOT NULL,
+    "availableCopies" INTEGER NOT NULL,
+
+    CONSTRAINT "Book_pkey" PRIMARY KEY ("bookId")
+);
+
+-- CreateTable
 CREATE TABLE "Member" (
     "memberId" UUID NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
-    "membershipDate" TIMESTAMP(3) NOT NULL,
+    "membershipDate" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Member_pkey" PRIMARY KEY ("memberId")
 );

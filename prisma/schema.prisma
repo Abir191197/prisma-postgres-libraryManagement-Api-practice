@@ -30,16 +30,17 @@ model Book {
 model Member {
   memberId       String   @id @default(uuid()) @db.Uuid // Primary key with UUID
   name           String
-  email          String   @unique               // Unique email for each member
+  email          String   @unique                    // Unique email for each member
   phone          String
-  membershipDate DateTime
+  membershipDate DateTime @default(now())             // Automatically set to the current date and time
 
-  BorrowRecord BorrowRecord[]
+  BorrowRecord   BorrowRecord[]                      // Relation to BorrowRecord model
 }
+
 
 model BorrowRecord {
   borrowId    String   @id @default(uuid()) @db.Uuid // Primary key with UUID
-  borrowDate  DateTime
+ borrowDate   DateTime @default(now())
   returnDate  DateTime? // Nullable field for the return date
   bookId      String   @db.Uuid // Foreign key to Book
   memberId    String   @db.Uuid // Foreign key to Member
