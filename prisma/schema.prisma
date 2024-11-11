@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+model Book {
+  bookId         String  @id @default(uuid()) @db.Uuid // Primary key with UUID
+  title          String
+  genre          String
+  publishedYear  Int
+  totalCopies    Int
+  availableCopies Int
+
+  BorrowRecord BorrowRecord[]
+}
+
+model Member {
+  memberId       String   @id @default(uuid()) @db.Uuid // Primary key with UUID
+  name           String
+  email          String   @unique               // Unique email for each member
+  phone          String
+  membershipDate DateTime
+
+  BorrowRecord BorrowRecord[]
+}
+
+model BorrowRecord {
+  borrowId    String   @id @default(uuid()) @db.Uuid // Primary key with UUID
+  borrowDate  DateTime
+  returnDate  DateTime? // Nullable field for the return date
+  bookId      String   @db.Uuid // Foreign key to Book
+  memberId    String   @db.Uuid // Foreign key to Member
+
+  // Relations to the Book and Member models
+  book        Book     @relation(fields: [bookId], references: [bookId])
+  member      Member   @relation(fields: [memberId], references: [memberId])
+
+ 
+}
