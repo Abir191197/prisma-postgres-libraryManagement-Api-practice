@@ -17,10 +17,6 @@
 
 ## Postman API Documentation
 
-You can view the full API documentation for this project on Postman:
-
-## Postman API Documentation
-
 You can view the full API documentation for this project on Postman [HERE](https://documenter.getpostman.com/view/31700576/2sAY547JzC).
 
 
