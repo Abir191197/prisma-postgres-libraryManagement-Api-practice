@@ -57,7 +57,6 @@ const MemberDeletesById = (0, catchAsync_1.default)(async (req, res) => {
         statusCode: http_status_codes_1.StatusCodes.OK,
         success: true,
         message: "Member deleted successfully",
-        data: result,
     });
 });
 exports.memberController = {

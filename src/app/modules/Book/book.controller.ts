@@ -63,7 +63,7 @@ const BookDeletesById = catchAsync(async (req, res) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Book deleted successfully",
-    data: result,
+  
   });
 });
 

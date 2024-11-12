@@ -58,7 +58,7 @@ const MemberDeletesById = catchAsync(async (req, res) => {
     statusCode: StatusCodes.OK,
     success: true,
     message: "Member deleted successfully",
-    data: result,
+   
   });
 })
 

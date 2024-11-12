@@ -14,7 +14,7 @@ const returnBook = (0, catchAsync_1.default)(async (req, res) => {
     const result = await return_service_1.returnService.returnBookFromDB(borrowId);
     // Send response with success
     (0, sendResponse_1.default)(res, {
-        statusCode: http_status_codes_1.StatusCodes.CREATED, // Use CREATED (201) status code for successful creation
+        statusCode: http_status_codes_1.StatusCodes.OK, // Use CREATED (201) status code for successful creation
         success: true,
         message: "Book returned successfully",
     });

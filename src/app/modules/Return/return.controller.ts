@@ -11,7 +11,7 @@ const returnBook = catchAsync(async (req, res) => {
 
   // Send response with success
   sendResponse(res, {
-    statusCode: StatusCodes.CREATED, // Use CREATED (201) status code for successful creation
+    statusCode: StatusCodes.OK, // Use CREATED (201) status code for successful creation
     success: true,
     message: "Book returned successfully",
    
